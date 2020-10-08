@@ -1,3 +1,3 @@
 # React Projects
 
-* [Todo Application](/todo.md)
+* [Todo Application](todo.md)
