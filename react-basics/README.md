@@ -1,13 +1,9 @@
 # React Basics
 
-### Create React App
 
-```bash
-npx create-react-app my-app
-cd my-app
-npm start
-```
+1. [Add React to a Website](01-add-react-to-a-website.md)
 
-* Open a web browser and go to http://localhost:3000/
+1. [Create a New React App](02-create-a-new-react-app.md)
 
-* Change the App.js file and Save, then you can see the changes on the browser automatically.
+
+
