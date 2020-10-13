@@ -221,7 +221,7 @@ class App extends React.Component {
         <div className="w-1/2">
           <div className="text-center">
           <div className="my-4">{this.state.title}</div>
-            <button className="p-1 bg-blue-700 text-white my-2" onClick={()=> (this.handleClick)}>Toggle Image</button>
+            <button className="p-1 bg-blue-700 text-white my-2" onClick={this.handleClick}>Toggle Image</button>
           </div>
             {
               this.state.isShowing ? (
@@ -252,7 +252,7 @@ class App extends React.Component {
   }
 
   handleClick() { // updated
-    setState({isShowing: !this.state.isShowing})
+    setState({isShowing: !this.state.isShowing}) // updated
   }
   render() {
     return (
@@ -260,7 +260,7 @@ class App extends React.Component {
         <div className="w-1/2">
           <div className="text-center">
           <div className="my-4">{this.state.title}</div>
-            <button className="p-1 bg-blue-700 text-white my-2" onClick={()=> (this.handleClick)}>Toggle Image</button>
+            <button className="p-1 bg-blue-700 text-white my-2" onClick={this.handleClick}>Toggle Image</button>
           </div>
             {
               this.state.isShowing ? (
