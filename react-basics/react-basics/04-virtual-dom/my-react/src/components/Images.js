@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Image from './Image';
 
 export default function Images() {
 
@@ -15,15 +16,9 @@ export default function Images() {
   function handleRemove(index) {
     setimages(images.filter((image, i) => i !== index));
   }
-
+  
   function ShowImage() {
-    return images.map((image, index) => {
-      return (
-        <div className="w-1/3 my-4 flex justify-center" key={index}>
-          <img src={image} width="150" onClick={() => handleRemove(index)}/>
-        </div>
-      );
-    });
+    return images.map((img, index) => <Image image={img} handleRemove={handleRemove} index={index} key={index} />);
   }
 
   function handleAdd() {
