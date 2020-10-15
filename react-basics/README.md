@@ -20,3 +20,5 @@
 1. [Remove an image](remove-an-image.md)
 
 1. [React Hook](react-hook.md)
+
+1. [Using Unsplash Plugin](using-unsplash-plugin.md)
