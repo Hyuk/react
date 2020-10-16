@@ -22,3 +22,5 @@
 1. [React Hook](react-hook.md)
 
 1. [Using Unsplash Plugin](using-unsplash-plugin.md)
+
+1. [Infinite Scroll](infinite-scroll.md)

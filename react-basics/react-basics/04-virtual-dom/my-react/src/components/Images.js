@@ -7,28 +7,14 @@ export default function Images() {
   const [images, setimages] = useState([]);
 
   const inputRef = useRef(null);
-  const varRef = useRef(images.length);
   useEffect(() => {
     inputRef.current.focus();
     Axios.get(
-      "https://api.unsplash.com/photos/?client_id=YOUR_ACCESS_KEY"
+      `${process.env.REACT_APP_UNSPLASH_URL}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`
       ).then((res) => {
-      console.log(res);
+      setimages(res.data);
     }); 
   }, []);
-
-  const [myName, setMyName] = useState('Sarthak')
-
-  useEffect(() => {
-    setMyName("Reactjs");
-    // console.log('i am use effect 1');
-  });
-
-  useLayoutEffect(() => {
-    
-    // varRef.current = varRef.current + 1;
-    // console.log('i am use effect 2');
-  });
 
   const [newImageUrl, setnewImageUrl] = useState("");
 
@@ -37,11 +23,10 @@ export default function Images() {
       ...images.slice(0, index),
       ...images.slice(index +1, images.length),
     ]);
-    console.log("I am changing state");
   }
   
   function ShowImage() {
-    return images.map((img, index) => <Image image={img} handleRemove={handleRemove} index={index} key={index} />);
+    return images.map((img, index) => <Image image={img.urls.regular} handleRemove={handleRemove} index={index} key={index} />);
   }
 
   function handleAdd() {
@@ -58,9 +43,6 @@ export default function Images() {
 
   return (
     <section>
-      <p>my name is {myName}</p>
-      <h1>{varRef.current} images</h1>
-      <p>Component is updated {varRef.current} times</p>
       <div className="flex flex-wrap justify-center">
         <ShowImage />
       </div>
