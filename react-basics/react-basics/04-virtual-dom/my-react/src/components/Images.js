@@ -1,25 +1,21 @@
-import React, {useState, useEffect, useRef, useLayoutEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Image from './Image';
-import Axios from "axios";
+import useFetchImage from '../utils/hooks/useFetchImage';
 
 export default function Images() {
 
-  const [images, setimages] = useState([]);
+  const [images, setImages] = useFetchImage();
 
   const inputRef = useRef(null);
   useEffect(() => {
     inputRef.current.focus();
-    Axios.get(
-      `${process.env.REACT_APP_UNSPLASH_URL}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`
-      ).then((res) => {
-      setimages(res.data);
-    }); 
+    
   }, []);
 
   const [newImageUrl, setnewImageUrl] = useState("");
 
   function handleRemove(index) {
-    setimages([
+    setImages([
       ...images.slice(0, index),
       ...images.slice(index +1, images.length),
     ]);
@@ -30,7 +26,7 @@ export default function Images() {
   }
 
   function handleAdd() {
-    setimages([
+    setImages([
       newImageUrl,
       ...images,
     ]);
